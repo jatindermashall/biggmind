@@ -3,18 +3,21 @@
     "name": "login",
     "path": "/login",
     "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_a2d43d94"
   },
   {
     "name": "profiles-id",
     "path": "/profiles/:id?",
     "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\profiles\\\\_id.vue",
-    "chunkName": "pages/profiles/_id"
+    "chunkName": "pages/profiles/_id",
+    "_name": "_b0bf2446"
   },
   {
     "name": "index",
     "path": "/",
     "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_362383c2"
   }
 ]
