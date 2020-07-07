@@ -11,8 +11,8 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_d78be196 from 'nuxt_plugin_plugin_d78be196' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_axios_f9622a50 from 'nuxt_plugin_axios_f9622a50' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_plugin_f8cce680 from 'nuxt_plugin_plugin_f8cce680' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_axios_33a3be3a from 'nuxt_plugin_axios_33a3be3a' // Source: .\\axios.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -51,7 +51,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"biggmind","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"## Build Setup"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"biggmind","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no","title":"Welcome to Biggmind"},{"hid":"description","name":"description","content":"```bash\r # install dependencies\r $ npm install"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Ftwitter-bootstrap\u002F4.5.0\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Ffont-awesome\u002F4.7.0\u002Fcss\u002Ffont-awesome.min.css"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fionicons\u002F2.0.1\u002Fcss\u002Fionicons.min.css"},{"rel":"javascript","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fionicons\u002F2.0.1\u002Fcss\u002Fionicons.min.css"},{"rel":"javascript","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fionicons\u002F2.0.1\u002Fcss\u002Fionicons.min.css"}],"style":[],"script":[]},
 
     router,
     nuxt: {
@@ -165,12 +165,12 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_d78be196 === 'function') {
-    await nuxt_plugin_plugin_d78be196(app.context, inject)
+  if (typeof nuxt_plugin_plugin_f8cce680 === 'function') {
+    await nuxt_plugin_plugin_f8cce680(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_f9622a50 === 'function') {
-    await nuxt_plugin_axios_f9622a50(app.context, inject)
+  if (typeof nuxt_plugin_axios_33a3be3a === 'function') {
+    await nuxt_plugin_axios_33a3be3a(app.context, inject)
   }
 
   // Lock enablePreview in context

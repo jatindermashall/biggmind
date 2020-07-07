@@ -1,8 +1,50 @@
 {
+  "CoursesHome": {
+    "description": "Auto imported from components/CoursesHome.vue"
+  },
+  "LazyCoursesHome": {
+    "description": "Auto imported from components/CoursesHome.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "LazyFooter": {
+    "description": "Auto imported from components/Footer.vue"
+  },
   "Logo": {
     "description": "Auto imported from components/Logo.vue"
   },
   "LazyLogo": {
     "description": "Auto imported from components/Logo.vue"
+  },
+  "NewsHome": {
+    "description": "Auto imported from components/NewsHome.vue"
+  },
+  "LazyNewsHome": {
+    "description": "Auto imported from components/NewsHome.vue"
+  },
+  "Profile": {
+    "description": "Auto imported from components/Profile.vue"
+  },
+  "LazyProfile": {
+    "description": "Auto imported from components/Profile.vue"
+  },
+  "ProfilesHome": {
+    "description": "Auto imported from components/ProfilesHome.vue"
+  },
+  "LazyProfilesHome": {
+    "description": "Auto imported from components/ProfilesHome.vue"
+  },
+  "Banner": {
+    "description": "Auto imported from components/parts/Banner.vue"
+  },
+  "LazyBanner": {
+    "description": "Auto imported from components/parts/Banner.vue"
+  },
+  "TopNav": {
+    "description": "Auto imported from components/parts/TopNav.vue"
+  },
+  "LazyTopNav": {
+    "description": "Auto imported from components/parts/TopNav.vue"
   }
 }

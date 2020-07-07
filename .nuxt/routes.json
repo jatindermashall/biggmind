@@ -2,13 +2,19 @@
   {
     "name": "login",
     "path": "/login",
-    "component": "C:\\\\xampp\\\\htdocs\\\\nuxtapp\\\\pages\\\\login.vue",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\login.vue",
     "chunkName": "pages/login"
+  },
+  {
+    "name": "profiles-id",
+    "path": "/profiles/:id?",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\profiles\\\\_id.vue",
+    "chunkName": "pages/profiles/_id"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\xampp\\\\htdocs\\\\nuxtapp\\\\pages\\\\index.vue",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\index.vue",
     "chunkName": "pages/index"
   }
 ]
