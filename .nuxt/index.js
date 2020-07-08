@@ -8,6 +8,7 @@ import NuxtError from './components/nuxt-error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
 import { setContext, getLocation, getRouteData, normalizeError } from './utils'
+import { createStore } from './store.js'
 
 /* Plugins */
 
@@ -46,6 +47,14 @@ const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearC
 async function createApp(ssrContext, config = {}) {
   const router = await createRouter(ssrContext)
 
+  const store = createStore(ssrContext)
+  // Add this.$router into store actions/mutations
+  store.$router = router
+
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  const registerModule = store.registerModule
+  store.registerModule = (path, rawModule, options) => registerModule.call(store, path, rawModule, Object.assign({ preserveState: process.client }, options))
+
   // Create Root instance
 
   // here we inject the router and store to all child components,
@@ -53,6 +62,7 @@ async function createApp(ssrContext, config = {}) {
   const app = {
     head: {"title":"biggmind","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no","title":"Welcome to Biggmind"},{"hid":"description","name":"description","content":"```bash\r # install dependencies\r $ npm install"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Ftwitter-bootstrap\u002F4.5.0\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Ffont-awesome\u002F4.7.0\u002Fcss\u002Ffont-awesome.min.css"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fionicons\u002F2.0.1\u002Fcss\u002Fionicons.min.css"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700&display=swap"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"},{"rel":"javascript","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fjquery\u002F3.5.1\u002Fjquery.min.js"},{"rel":"javascript","href":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Ftwitter-bootstrap\u002F4.5.0\u002Fjs\u002Fbootstrap.bundle.min.js"}],"style":[],"script":[]},
 
+    store,
     router,
     nuxt: {
       defaultTransition,
@@ -97,6 +107,9 @@ async function createApp(ssrContext, config = {}) {
     ...App
   }
 
+  // Make app available into store via this.app
+  store.app = app
+
   const next = ssrContext ? ssrContext.next : location => app.router.push(location)
   // Resolve route
   let route
@@ -109,6 +122,7 @@ async function createApp(ssrContext, config = {}) {
 
   // Set context to app.context
   await setContext(app, {
+    store,
     route,
     next,
     error: app.nuxt.error.bind(app),
@@ -135,6 +149,9 @@ async function createApp(ssrContext, config = {}) {
       app.context[key] = value
     }
 
+    // Add into store
+    store[key] = app[key]
+
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
     if (Vue[installKey]) {
@@ -155,6 +172,13 @@ async function createApp(ssrContext, config = {}) {
 
   // Inject runtime config as $config
   inject('config', config)
+
+  if (process.client) {
+    // Replace store state before plugins execution
+    if (window.__NUXT__ && window.__NUXT__.state) {
+      store.replaceState(window.__NUXT__.state)
+    }
+  }
 
   // Add enablePreview(previewData = {}) in context for plugins
   if (process.static && process.client) {
@@ -198,6 +222,7 @@ async function createApp(ssrContext, config = {}) {
   }
 
   return {
+    store,
     app,
     router
   }
