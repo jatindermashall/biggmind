@@ -18,8 +18,8 @@
                   alt="Shravan "
                   style="width: 100%;"
                 />
-                <h4 class="mt-1 p-1">Shravan Bhat</h4>
-                <p class="profiletitle">CEO & Founder, Example</p>
+                <h4 class="mt-1 p-1">{{profile.name}}</h4>
+                <p class="profiletitle">{{profile.title}}</p>
                 <hr />
                 <div>
                   <ul class="d-flex flex-row profileicons justify-content-around">
@@ -68,9 +68,9 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Profiles",
   methods: {
-    ...mapActions('profiles', ["fetchProfiles"])
+    ...mapActions("profiles", ["fetchProfiles"])
   },
-  computed: mapGetters('profiles' ,["allProfiles"]),
+  computed: mapGetters("profiles", ["allProfiles"]),
   created() {
     this.fetchProfiles();
   }

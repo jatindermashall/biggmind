@@ -2,22 +2,22 @@
   {
     "name": "login",
     "path": "/login",
-    "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\login.vue",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\login.vue",
     "chunkName": "pages/login",
-    "_name": "_a2d43d94"
+    "_name": "_c074f5b6"
   },
   {
     "name": "profiles-id",
     "path": "/profiles/:id?",
-    "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\profiles\\\\_id.vue",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\profiles\\\\_id.vue",
     "chunkName": "pages/profiles/_id",
-    "_name": "_b0bf2446"
+    "_name": "_0f3e9a68"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "E:\\\\xampp\\\\htdocs\\\\biggmind\\\\pages\\\\index.vue",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_362383c2"
+    "_name": "_53c43be4"
   }
 ]

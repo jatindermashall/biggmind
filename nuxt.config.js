@@ -1,4 +1,7 @@
 export default {
+  env: {
+    apiUrl: process.env.API_URL || "http://161.35.7.108/"
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
