@@ -14,7 +14,7 @@
             >
               <div class="profilecard">
                 <img
-                  :src="'http://161.35.7.108'+profile.profile_image[0].url"
+                  :src="endPoint+profile.profile_image[0].url"
                   alt="Shravan "
                   style="width: 100%;"
                 />
@@ -66,6 +66,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      endPoint: process.env.imageUrl
+    }
+  },
   name: "Profiles",
   methods: {
     ...mapActions("profiles", ["fetchProfiles"])

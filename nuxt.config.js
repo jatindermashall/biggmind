@@ -1,6 +1,7 @@
 export default {
   env: {
-    apiUrl: process.env.API_URL || "http://161.35.7.108/"
+    apiUrl: process.env.API_URL || "http://161.35.7.108",
+    imageUrl: process.env.API_IMAGE_URL || "http://161.35.7.108"
   },
   /*
    ** Nuxt rendering mode
