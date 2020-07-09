@@ -18,7 +18,11 @@
                   alt="Shravan "
                   style="width: 100%;"
                 />
-                <h4 class="mt-1 p-1">{{profile.name}}</h4>
+                <h4 class="mt-1 p-1">
+                  <nuxt-link :to="`/${profile.name}`">
+                    {{profile.name}}
+                  </nuxt-link>
+                </h4>
                 <p class="profiletitle">{{profile.title}}</p>
                 <hr />
                 <div>
