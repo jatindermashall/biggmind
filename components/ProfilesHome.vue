@@ -14,7 +14,7 @@
             >
               <div class="profilecard">
                 <img
-                  src="https://via.placeholder.com/300x200?text=Profile+Image"
+                  :src="'http://161.35.7.108'+profile.profile_image[0].url"
                   alt="Shravan "
                   style="width: 100%;"
                 />
