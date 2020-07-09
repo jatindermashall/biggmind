@@ -17,15 +17,17 @@ const actions = {
     console.log(response.data);
 
     commit("setProfiles", response.data);
+  },
+
+  async getProfile ({commit}, payload) {
+    const response = await axios.get(`http://161.35.7.108/profiles/${payload}`)
+    commit('setSelectedProfile', response.data)
   }
 };
 
 const mutations = {
   setProfiles: (state, profiles) => (state.profiles = profiles),
-  setSelectedProfile (state, profile) {
-    let index = state.profiles.findIndex(prof => prof.name.toLowerCase() === profile.toLowerCase())
-    state.selectedProfile = state.profiles[index]
-  }
+  setSelectedProfile: (state, profile) => (state.selectedProfile = profile)
 };
 
 export default {

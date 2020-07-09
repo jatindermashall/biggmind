@@ -19,7 +19,7 @@
                   style="width: 100%;"
                 />
                 <h4 class="mt-1 p-1">
-                  <nuxt-link :to="`/${profile.name}`">
+                  <nuxt-link :to="`/${profile.id}`">
                     {{profile.name}}
                   </nuxt-link>
                 </h4>

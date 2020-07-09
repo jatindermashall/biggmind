@@ -198,7 +198,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
     data () {
         return {
@@ -206,13 +206,13 @@ export default {
         }
     },
     mounted() {
-      this.setSelectedProfile(this.$route.params.name)
+      this.getProfile(this.$route.params.name)
     },
     computed:{
         ...mapGetters("profiles", ["allProfiles", "profile"])
     },
     methods: {
-      ...mapMutations('profiles', ['setSelectedProfile'])
+      ...mapActions('profiles', ['getProfile'])
     }
 };
 </script>
