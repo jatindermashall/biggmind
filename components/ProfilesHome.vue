@@ -68,9 +68,9 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Profiles",
   methods: {
-    ...mapActions(["fetchProfiles"])
+    ...mapActions('profiles', ["fetchProfiles"])
   },
-  computed: mapGetters(["allProfiles"]),
+  computed: mapGetters('profiles' ,["allProfiles"]),
   created() {
     this.fetchProfiles();
   }
