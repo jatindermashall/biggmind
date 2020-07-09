@@ -68,7 +68,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      endPoint: process.env.apiUrl
+      endPoint: process.env.imageUrl
     }
   },
   name: "Profiles",
