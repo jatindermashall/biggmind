@@ -2,22 +2,22 @@
   {
     "name": "login",
     "path": "/login",
-    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\login.vue",
+    "component": "/var/www/html/nidhi/nidhi/nuxt/biggo/pages/login.vue",
     "chunkName": "pages/login",
-    "_name": "_c074f5b6"
+    "_name": "_e466f490"
   },
   {
     "name": "profiles-id",
     "path": "/profiles/:id?",
-    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\profiles\\\\_id.vue",
+    "component": "/var/www/html/nidhi/nidhi/nuxt/biggo/pages/profiles/_id.vue",
     "chunkName": "pages/profiles/_id",
-    "_name": "_0f3e9a68"
+    "_name": "_0a51fa16"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\index.vue",
+    "component": "/var/www/html/nidhi/nidhi/nuxt/biggo/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_53c43be4"
+    "_name": "_77b63abe"
   }
 ]
