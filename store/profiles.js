@@ -1,11 +1,13 @@
 import axios from "axios";
 
 const state = {
-  profiles: []
+  profiles: [],
+  selectedProfile: {}
 };
 
 const getters = {
-  allProfiles: state => state.profiles
+  allProfiles: state => state.profiles,
+  profile: state => state.selectedProfile
 };
 
 const actions = {
@@ -19,7 +21,11 @@ const actions = {
 };
 
 const mutations = {
-  setProfiles: (state, profiles) => (state.profiles = profiles)
+  setProfiles: (state, profiles) => (state.profiles = profiles),
+  setSelectedProfile (state, profile) {
+    let index = state.profiles.findIndex(prof => prof.name.toLowerCase() === profile.toLowerCase())
+    state.selectedProfile = state.profiles[index]
+  }
 };
 
 export default {

@@ -7,7 +7,7 @@
           <div
             class="col-md-3 col-sm-12 littleheaddetail text-center align-self-center column justify-content-lg-center align-items-lg-center"
           >
-            <div class>
+            <div class v-if="profile.profile_image">
               <img
                 class="profileimage img-fluid"
                 :src="endPoint + profile.profile_image[0].url"
@@ -198,20 +198,22 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
     data () {
         return {
             endPoint: process.env.imageUrl
         }
     },
-    computed:{
-        ...mapGetters("profiles", ["allProfiles"]),
-        profile () {
-            let index = this.allProfiles.findIndex(prof => prof.name.toLowerCase() === this.$route.params.name.toLowerCase())
-            return this.allProfiles[index]
-        }
+    mounted() {
+      this.setSelectedProfile(this.$route.params.name)
     },
+    computed:{
+        ...mapGetters("profiles", ["allProfiles", "profile"])
+    },
+    methods: {
+      ...mapMutations('profiles', ['setSelectedProfile'])
+    }
 };
 </script>
 
