@@ -88,55 +88,51 @@
             <ul class="nav tabpillscustomul bg-transparent">
               <span class="tabpillscustom">
                 <li class="active">
-                  <a href="#home" style="background-color: none;" data-toggle="tab">Overview</a>
+                  <a href="#home" style="background-color: none;" @click="selectedTab = 'home'" data-toggle="tab">Overview</a>
                 </li>
               </span>
               <span class="tabpillscustom">
                 <li>
-                  <a href="#Quotes" data-toggle="tab">Quotes</a>
+                  <a href="#Quotes" data-toggle="tab" @click="selectedTab = 'quotes'">Quotes</a>
                 </li>
               </span>
               <span class="tabpillscustom">
                 <li>
-                  <a href="#Books" data-toggle="tab">Books</a>
+                  <a href="#Books" data-toggle="tab" @click="selectedTab = 'books'">Books</a>
                 </li>
               </span>
               <span class="tabpillscustom">
                 <li>
-                  <a href="#Stories" data-toggle="tab">Stories</a>
+                  <a href="#Stories" data-toggle="tab" @click="selectedTab = 'stories'">Stories</a>
                 </li>
               </span>
               <span class="tabpillscustom">
                 <li>
-                  <a href="#News" data-toggle="tab">News</a>
+                  <a href="#News" data-toggle="tab" @click="selectedTab = 'news'">News</a>
                 </li>
               </span>
             </ul>
           </div>
 
           <div class="tab-content col-sm-12 bg-transparent ml-3 col-md-9">
-            <div class="tab-pane active" id="home">
+            <div class="tab-pane" id="home" :class="{'active': selectedTab === 'home'}">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">An Overview</h1>
                 <hr />
                 <p class="bg-transparent">{{profile.about_me}}</p>
               </div>
             </div>
-            <div class="tab-pane" id="Quotes">
+            <div class="tab-pane" id="Quotes" :class="{'active': selectedTab === 'quotes'}">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Quotes</h1>
                 <hr />
                 <p class="bg-transparent">
-                <h1>Quote1</h1>
-                <h1>Quote2</h1>
-                <h1>Quote3</h1>
-
-
+                  <h5 v-for="(quote, index) in profile.quotes" :key="index">{{index + 1}}. {{quote.content}}</h5>
                 </p>
               </div>
             </div>
 
-            <div class="tab-pane" id="Books">
+            <div class="tab-pane" id="Books" :class="{'active': selectedTab === 'books'}">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Books recomendation</h1>
                 <hr />
@@ -151,7 +147,7 @@
               </div>
             </div>
 
-            <div class="tab-pane" id="Stories">
+            <div class="tab-pane" id="Stories" :class="{'active': selectedTab === 'stories'}">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Stories by Entreprenuers</h1>
                 <hr />
@@ -166,7 +162,7 @@
               </div>
             </div>
 
-            <div class="tab-pane" id="News">
+            <div class="tab-pane" id="News" :class="{'active': selectedTab === 'news'}">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Latest News</h1>
                 <hr />
@@ -194,7 +190,8 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      endPoint: process.env.imageUrl
+      endPoint: process.env.imageUrl,
+      selectedTab: 'home'
     };
   },
   mounted() {
