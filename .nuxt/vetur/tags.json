@@ -35,6 +35,12 @@
   "LazyProfilesHome": {
     "description": "Auto imported from components/ProfilesHome.vue"
   },
+  "ProfileTest": {
+    "description": "Auto imported from components/Profile_test.vue"
+  },
+  "LazyProfileTest": {
+    "description": "Auto imported from components/Profile_test.vue"
+  },
   "Banner": {
     "description": "Auto imported from components/parts/Banner.vue"
   },

@@ -19,9 +19,7 @@
                   style="width: 100%;"
                 />
                 <h4 class="mt-1 p-1">
-                  <nuxt-link :to="`/${profile.id}?${profile.name}`">
-                    {{profile.name}}
-                  </nuxt-link>
+                  <nuxt-link :to="`/${profile.id}.${profile.name}`">{{profile.name}}</nuxt-link>
                 </h4>
                 <p class="profiletitle">{{profile.title}}</p>
                 <hr />
@@ -73,7 +71,7 @@ export default {
   data() {
     return {
       endPoint: process.env.imageUrl
-    }
+    };
   },
   name: "Profiles",
   methods: {

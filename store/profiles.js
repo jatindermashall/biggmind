@@ -19,9 +19,11 @@ const actions = {
     commit("setProfiles", response.data);
   },
 
-  async getProfile ({commit}, payload) {
-    const response = await axios.get(`http://161.35.7.108/profiles/${payload}`)
-    commit('setSelectedProfile', response.data)
+  async getProfile({ commit }, payload) {
+    var urlp = payload.split(".");
+    console.log(urlp);
+    const response = await axios.get(`http://161.35.7.108/profiles/${urlp[0]}`);
+    commit("setSelectedProfile", response.data);
   }
 };
 

@@ -19,5 +19,12 @@
     "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
     "_name": "_53c43be4"
+  },
+  {
+    "name": "name",
+    "path": "/:name",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\_name.vue",
+    "chunkName": "pages/_name",
+    "_name": "_7959e0a6"
   }
 ]

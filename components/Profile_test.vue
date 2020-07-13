@@ -119,28 +119,14 @@
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">An Overview</h1>
                 <hr />
-                <p class="bg-transparent">
-                  Dummy content goes here. These lists are meant to identify
-                  articles which deserve editor attention because they are the
-                  most important for an encyclopedia to have, as determined by
-                  the community of participating editors. They may also be of
-                  interest to readers as an alternative to lists of overview
-                  articles.
-                </p>
+                <p class="bg-transparent">{{profile.about_me}}</p>
               </div>
             </div>
             <div class="tab-pane" id="Quotes">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Quotes</h1>
                 <hr />
-                <p class="bg-transparent">
-                  Dummy content goes here. These lists are meant to identify
-                  articles which deserve editor attention because they are the
-                  most important for an encyclopedia to have, as determined by
-                  the community of participating editors. They may also be of
-                  interest to readers as an alternative to lists of overview
-                  articles.
-                </p>
+                <p class="bg-transparent">{{profile.quotes}}</p>
               </div>
             </div>
 
@@ -200,20 +186,20 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-    data () {
-        return {
-            endPoint: process.env.imageUrl
-        }
-    },
-    mounted() {
-      this.getProfile(this.$route.params.name)
-    },
-    computed:{
-        ...mapGetters("profiles", ["allProfiles", "profile"])
-    },
-    methods: {
-      ...mapActions('profiles', ['getProfile'])
-    }
+  data() {
+    return {
+      endPoint: process.env.imageUrl
+    };
+  },
+  mounted() {
+    this.getProfile(this.$route.params.name);
+  },
+  computed: {
+    ...mapGetters("profiles", ["allProfiles", "profile"])
+  },
+  methods: {
+    ...mapActions("profiles", ["getProfile"])
+  }
 };
 </script>
 
