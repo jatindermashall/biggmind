@@ -126,7 +126,13 @@
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Quotes</h1>
                 <hr />
-                <p class="bg-transparent">{{profile.quotes}}</p>
+                <p class="bg-transparent">
+                <h1>Quote1</h1>
+                <h1>Quote2</h1>
+                <h1>Quote3</h1>
+
+
+                </p>
               </div>
             </div>
 
