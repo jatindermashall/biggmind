@@ -83,7 +83,7 @@
         <!-- tabs -->
         <div class="tabbable d-flex bg-transparent container">
           <div
-            class="text-center boxedcontainer tabhandler col-md-3 col-sm-12 flex-column d-flex align-self-center justify-content-center"
+            class="text-center boxedcontainer tabhandler col-md-3 col-sm-12 flex-column d-flex sidebarHeight"
           >
             <ul class="nav tabpillscustomul bg-transparent">
               <span class="tabpillscustom">
