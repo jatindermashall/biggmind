@@ -458,7 +458,7 @@ a:hover {
 }
 
 .sidebarHeight {
-  height: 60%;
+  max-height: 350px;
 }
 
 .card-custom-img {
