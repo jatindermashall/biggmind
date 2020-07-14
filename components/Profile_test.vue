@@ -133,18 +133,41 @@
             </div>
 
             <div class="tab-pane" id="Books" :class="{'active': selectedTab === 'books'}">
-              <div class="card bg-white boxedcontainer mainsectioncard">
+              <div class="card bg-white boxedcontainer mainsectioncard bookContainer">
                 <h1 class="bg-transparent">Books recomendation</h1>
                 <hr />
+
+                <v-container class="grey lighten-5">
+                  <v-row no-gutters>
+                    <v-col v-for="(book, index) in profile.books" :key="index">
+                      <v-card class="mx-auto" max-width="250" >
+                          <v-img
+                            class="white--text align-end"
+                            height="200px"
+                            :src="endPoint + book.image[0].url"
+                          >
+                          </v-img>
+
+
+                          <v-card-text class="text--primary">
+                            <div class="font-weight-bold">{{book.title}}</div>
+                            <div>Autor: {{book.Author}}</div>
+                          </v-card-text>
+                        </v-card>
+
+                    </v-col>
+                  </v-row>
+                </v-container>
+  
                 <p class="bg-transparent">
 
-                  <div class="parent">
-  <div class="child" v-for="(book, index) in profile.books" :key="index">
+                <!--  <div class="parent">
+   <div class="child" v-for="(book, index) in profile.books" :key="index">
     <img :src="endPoint + book.image[0].url" width="100px"/><br/>
     
-    {{index + 1}}. {{book.title}}</div>
+    {{index + 1}}. {{book.title}}</div> 
   
-</div>
+</div> -->
                   
                 </p>
               </div>
