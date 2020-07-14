@@ -502,3 +502,14 @@ a:hover {
 .coursediv {
   transform: scale(0.8);
 }
+/*books display*/
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child {
+  flex: 1 0 21%; /* explanation below */
+  margin: 5px;
+  height: 100px;
+}
