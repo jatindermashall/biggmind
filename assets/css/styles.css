@@ -64,6 +64,10 @@ body {
   max-width: fit-content !important;
 }
 
+.bookContainer {
+  max-width: 100% !important;
+}
+
 .navsearchbar {
   border: 2px solid #181818 !important;
   border-radius: 20px !important;
