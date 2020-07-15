@@ -461,6 +461,10 @@ a:hover {
   width: 100%;
 }
 
+.book-title{
+  min-height: 44px;
+}
+
 .sidebarHeight {
   max-height: 350px;
 }

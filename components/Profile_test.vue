@@ -150,7 +150,7 @@
 
 
                           <v-card-text class="text--primary">
-                            <div class="font-weight-bold">{{book.title}}</div>
+                            <div class="font-weight-bold book-title">{{book.title}}</div>
                             <div>Autor: {{book.Author}}</div>
                           </v-card-text>
                         </v-card>
