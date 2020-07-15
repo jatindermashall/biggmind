@@ -27,16 +27,10 @@ const actions = {
     const response = await axios.get(`http://161.35.7.108/profiles/${urlp[0]}`);
     commit("setSelectedProfile", response.data);
   },
-  setSearch ({ state,commit, dispatch }, payload) {
+  async setSearch ({ state,commit, dispatch }, payload) {
     if (payload.type.toLowerCase() === 'profiles') {
-      if (payload.text !== '') {
-        let result =  state.profiles.filter(item => {
-          return item['full_name'].toLowerCase().includes(payload.text.toLowerCase()) })
-        commit("setProfilesFilter", result);
-      } else {
-        // dispatch('fetchProfiles')
-        commit("setProfilesFilter", state.profiles)
-      }
+      let result = await axios.get(`http://161.35.7.108/profiles?name_contains=${payload.text.toLowerCase()}`)
+      commit("setProfilesFilter", result.data);
     }
     commit('setSearch', payload)
   }

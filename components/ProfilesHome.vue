@@ -8,8 +8,8 @@
           </div>
           <div class="bg-white mt-4 card-group">
             <div
-              v-for="profile in profileArr"
-              :key="profile.id"
+              v-for="(profile, index) in profileArr"
+              :key="index"
               class="col-sm-4 bg-white mb-0 mt-2"
             >
               <div class="profilecard">
@@ -81,8 +81,10 @@ export default {
     ...mapState("profiles", ['profiles', 'filterProfile']),
     ...mapGetters("profiles", ["allProfiles"]),
     profileArr () {
-      if ($nuxt.$route.name === 'index')return this.profiles
-      if ($nuxt.$route.name === 'profileFilter') return this.filterProfile
+      console.log(this.filterProfile, '======>');
+      
+      if (this.$nuxt.$route.name === 'index')return this.profiles
+      if (this.$nuxt.$route.name === 'profileFilter') return this.filterProfile
     }
   },
   created() {
