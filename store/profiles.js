@@ -3,7 +3,8 @@ import axios from "axios";
 const state = {
   profiles: [],
   selectedProfile: {},
-  filtersearch: {}
+  filtersearch: {},
+  filterProfile: []
 };
 
 const getters = {
@@ -31,9 +32,10 @@ const actions = {
       if (payload.text !== '') {
         let result =  state.profiles.filter(item => {
           return item['full_name'].toLowerCase().includes(payload.text.toLowerCase()) })
-        commit("setProfiles", result);
+        commit("setProfilesFilter", result);
       } else {
-        dispatch('fetchProfiles')
+        // dispatch('fetchProfiles')
+        commit("setProfilesFilter", state.profiles)
       }
     }
     commit('setSearch', payload)
@@ -42,6 +44,7 @@ const actions = {
 
 const mutations = {
   setProfiles: (state, profiles) => (state.profiles = profiles),
+  setProfilesFilter: (state, profiles) => (state.filterProfile = profiles),
   setSelectedProfile: (state, profile) => (state.selectedProfile = profile),
   setSearch: (state,payload) => (state.filtersearch = payload)
 };

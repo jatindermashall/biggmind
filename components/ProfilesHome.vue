@@ -8,7 +8,7 @@
           </div>
           <div class="bg-white mt-4 card-group">
             <div
-              v-for="profile in allProfiles"
+              v-for="profile in profileArr"
               :key="profile.id"
               class="col-sm-4 bg-white mb-0 mt-2"
             >
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
@@ -77,7 +77,14 @@ export default {
   methods: {
     ...mapActions("profiles", ["fetchProfiles"])
   },
-  computed: mapGetters("profiles", ["allProfiles"]),
+  computed: {
+    ...mapState("profiles", ['profiles', 'filterProfile']),
+    ...mapGetters("profiles", ["allProfiles"]),
+    profileArr () {
+      if ($nuxt.$route.name === 'index')return this.profiles
+      if ($nuxt.$route.name === 'profileFilter') return this.filterProfile
+    }
+  },
   created() {
     this.fetchProfiles();
   }
