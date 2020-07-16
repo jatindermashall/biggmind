@@ -3,7 +3,7 @@
   <div class="container-fluid searchsection">
     <div class="row">
       <div class="col justify-content-center d-flex">
-        <form class="form-holder row justify-content-center d-flex align-items-stretch">
+        <form class="form-holder row justify-content-center d-flex align-items-stretch"  @submit.prevent>
           <input
             class="form-control searchbar"
             type="search"
@@ -15,12 +15,11 @@
           <div class="btn-group searchdropdown align-items-center">
             <button
               id="dropdownToSelect"
-              type="button"
               class="btn btn-light dropdown-toggle"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              @click="showDropdown = !showDropdown"
+              @click.prevent="showDropdown = !showDropdown"
             >{{selected ? selected : 'Select'}}</button>
             <div class="dropdown-menu" :class="{'show': showDropdown}" aria-labelledby="dropdownToSelect">
               <button class="dropdown-item" value="profiles" @click="selected = 'Profiles', showDropdown = false">Profiles</button>
@@ -50,6 +49,8 @@ export default {
     async searchFilter() {
       if (this.selected) {
         await this.setSearch({text: this.search, type: this.selected})
+        if (this.selected === 'Profiles' && this.search != '')
+        this.$router.push({ name: 'profileFilter' })
       }
     }
   }
