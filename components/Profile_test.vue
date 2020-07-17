@@ -7,22 +7,52 @@
           <div
             class="col-md-3 col-sm-12 littleheaddetail text-center align-self-center column justify-content-lg-center align-items-lg-center"
           >
-            <div class v-if="profile.profile_image">
-              <img
-                class="profileimage img-fluid"
-                :src="endPoint + profile.profile_image[0].url"
-                width="180rem"
-                style="margin-left: 0px;"
-              />
-              <h2
-                class="text-center profileheader"
-                style="
-                  font-weight: 600;
-                  font-size: 23px;
-                  color: rgb(15, 15, 15);
-                "
-              >{{profile.name}}</h2>
-            </div>
+            
+        
+              <v-card class="d-inline-block mx-auto" v-if="profile.profile_image">
+    <v-container>
+      <v-row justify="space-between">
+        <v-col cols="auto">
+          <v-img :src="endPoint + profile.profile_image[0].url"
+            height="200"
+            width="200"
+            
+          ></v-img>
+{{profile.name}}
+
+        </v-col>
+
+        <v-col
+          cols="auto"
+          class="text-center pl-0"
+        >
+          <v-row
+            class="flex-column ma-0 fill-height"
+            justify="center"
+          >
+            <v-col class="px-0">
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+            </v-col>
+
+            <v-col class="px-0">
+              <v-btn icon>
+                <v-icon>mdi-bookmark</v-icon>
+              </v-btn>
+            </v-col>
+
+            <v-col class="px-0">
+              <v-btn icon>
+                <v-icon>mdi-share-variant</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
+            
           </div>
           <div class="col-md-9 col-sm-12 bg-transparent">
             <div class="card herocard text-left shadow" style="max-width: 800px;">

@@ -7,6 +7,13 @@
     "_name": "_c074f5b6"
   },
   {
+    "name": "profileFilter",
+    "path": "/profileFilter",
+    "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\profileFilter.vue",
+    "chunkName": "pages/profileFilter",
+    "_name": "_5dd9043d"
+  },
+  {
     "name": "profiles-id",
     "path": "/profiles/:id?",
     "component": "E:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\profiles\\\\_id.vue",
