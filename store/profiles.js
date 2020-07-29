@@ -14,7 +14,8 @@ const getters = {
 
 const actions = {
   async fetchProfiles({ commit }) {
-    const response = await axios.get("http://161.35.7.108/profiles");
+    //alert(process.env.apiUrl);
+    const response = await axios.get(process.env.apiUrl+"/profiles");
 
     console.log(response.data);
 
@@ -24,12 +25,12 @@ const actions = {
   async getProfile({ commit }, payload) {
     var urlp = payload.split(".");
     console.log(urlp);
-    const response = await axios.get(`http://161.35.7.108/profiles/${urlp[0]}`);
+    const response = await axios.get(process.env.apiUrl+`/profiles/${urlp[0]}`);
     commit("setSelectedProfile", response.data);
   },
   async setSearch ({ state,commit, dispatch }, payload) {
     if (payload.type.toLowerCase() === 'profiles') {
-      let result = await axios.get(`http://161.35.7.108/profiles?name_contains=${payload.text.toLowerCase()}`)
+      let result = await axios.get(process.env.apiUrl+`/profiles?name_contains=${payload.text.toLowerCase()}`)
       commit("setProfilesFilter", result.data);
     }
     commit('setSearch', payload)
