@@ -1,7 +1,7 @@
 export default {
   env: {
-    apiUrl: process.env.API_URL || "https://mlisting.com",
-    imageUrl: process.env.API_IMAGE_URL || "https://mlisting.com"
+    apiUrl: process.env.API_URL || "https://api.biggmind.com",
+    imageUrl: process.env.API_IMAGE_URL || "https://api.biggmind.com"
   },
   /*
    ** Nuxt rendering mode
