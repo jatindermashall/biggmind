@@ -16,7 +16,7 @@
                 <img
                   :src="endPoint+profile.profile_image[0].url"
                   alt="Shravan "
-                  style="width: 100%;"
+                  style="width: 80%;"
                 />
                 <h4 class="mt-1 p-1">
                   <nuxt-link :to="`/${profile.id}.${profile.name}`">{{profile.name}}</nuxt-link>
