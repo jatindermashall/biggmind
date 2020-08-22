@@ -47,6 +47,12 @@
   "LazyBanner": {
     "description": "Auto imported from components/parts/Banner.vue"
   },
+  "Banner2": {
+    "description": "Auto imported from components/parts/Banner2.vue"
+  },
+  "LazyBanner2": {
+    "description": "Auto imported from components/parts/Banner2.vue"
+  },
   "TopNav": {
     "description": "Auto imported from components/parts/TopNav.vue"
   },

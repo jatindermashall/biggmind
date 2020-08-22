@@ -2,36 +2,36 @@
   {
     "name": "login",
     "path": "/login",
-    "component": "C:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\login.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\biggofinal\\\\pages\\\\login.vue",
     "chunkName": "pages/login",
-    "_name": "_de09ca32"
+    "_name": "_8dbe946e"
   },
   {
     "name": "profileFilter",
     "path": "/profileFilter",
-    "component": "C:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\profileFilter.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\biggofinal\\\\pages\\\\profileFilter.vue",
     "chunkName": "pages/profileFilter",
-    "_name": "_7a85b7ff"
+    "_name": "_86495e3e"
   },
   {
     "name": "profiles-id",
     "path": "/profiles/:id?",
-    "component": "C:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\profiles\\\\_id.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\biggofinal\\\\pages\\\\profiles\\\\_id.vue",
     "chunkName": "pages/profiles/_id",
-    "_name": "_150d668e"
+    "_name": "_5762ff70"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\index.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\biggofinal\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_71591060"
+    "_name": "_210dda9c"
   },
   {
     "name": "name",
     "path": "/:name",
-    "component": "C:\\\\xampp\\\\htdocs\\\\biggo\\\\pages\\\\_name.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\biggofinal\\\\pages\\\\_name.vue",
     "chunkName": "pages/_name",
-    "_name": "_6a8f7668"
+    "_name": "_da95dd6c"
   }
 ]

@@ -75,13 +75,14 @@ export default {
   },
   name: "Profiles",
   methods: {
-    ...mapActions("profiles", ["fetchProfiles"])
+    ...mapActions("profiles", ["fetchProfiles"]),
+    ...mapActions(["fetchProfiles"])
   },
   computed: {
     ...mapState("profiles", ['profiles', 'filterProfile']),
     ...mapGetters("profiles", ["allProfiles"]),
     profileArr () {
-      console.log(this.filterProfile, '======>');
+      
       
       if (this.$nuxt.$route.name === 'index')return this.profiles
       if (this.$nuxt.$route.name === 'profileFilter') return this.filterProfile

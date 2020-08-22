@@ -6,6 +6,7 @@ export { default as Profile } from '../..\\components\\Profile.vue'
 export { default as ProfilesHome } from '../..\\components\\ProfilesHome.vue'
 export { default as ProfileTest } from '../..\\components\\Profile_test.vue'
 export { default as Banner } from '../..\\components\\parts\\Banner.vue'
+export { default as Banner2 } from '../..\\components\\parts\\Banner2.vue'
 export { default as TopNav } from '../..\\components\\parts\\TopNav.vue'
 
 export const LazyCoursesHome = import('../..\\components\\CoursesHome.vue' /* webpackChunkName: "components_CoursesHome'}" */).then(c => c.default || c)
@@ -16,4 +17,5 @@ export const LazyProfile = import('../..\\components\\Profile.vue' /* webpackChu
 export const LazyProfilesHome = import('../..\\components\\ProfilesHome.vue' /* webpackChunkName: "components_ProfilesHome'}" */).then(c => c.default || c)
 export const LazyProfileTest = import('../..\\components\\Profile_test.vue' /* webpackChunkName: "components_Profile_test'}" */).then(c => c.default || c)
 export const LazyBanner = import('../..\\components\\parts\\Banner.vue' /* webpackChunkName: "components_parts/Banner'}" */).then(c => c.default || c)
+export const LazyBanner2 = import('../..\\components\\parts\\Banner2.vue' /* webpackChunkName: "components_parts/Banner2'}" */).then(c => c.default || c)
 export const LazyTopNav = import('../..\\components\\parts\\TopNav.vue' /* webpackChunkName: "components_parts/TopNav'}" */).then(c => c.default || c)
