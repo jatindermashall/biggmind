@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopNav />
-    <Banner />
+    <Banner2 />
     <ProfilesHome />
     <NewsHome />
     <CoursesHome />

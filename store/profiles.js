@@ -26,11 +26,16 @@ const actions = {
     var urlp = payload.split(".");
     console.log(urlp);
     const response = await axios.get(process.env.apiUrl+`/profiles/${urlp[0]}`);
+   
     commit("setSelectedProfile", response.data);
   },
   async setSearch ({ state,commit, dispatch }, payload) {
+    
+    
     if (payload.type.toLowerCase() === 'profiles') {
       let result = await axios.get(process.env.apiUrl+`/profiles?name_contains=${payload.text.toLowerCase()}`)
+
+     
       commit("setProfilesFilter", result.data);
     }
     commit('setSearch', payload)

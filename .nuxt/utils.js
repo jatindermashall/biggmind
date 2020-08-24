@@ -150,7 +150,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {"apiUrl":"https://mlisting.com","imageUrl":"https://mlisting.com"}
+      env: {"apiUrl":"https://api.biggmind.com","imageUrl":"https://api.biggmind.com"}
     }
     // Only set once
     if (!process.static && context.req) {
