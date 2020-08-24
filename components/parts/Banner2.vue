@@ -19,7 +19,7 @@
       label="Search for entrepreneur..."
       solo
     ></v-autocomplete></v-col>
-    <v-btn color="primary"  @click="searchFilter">Primary</v-btn>
+    <v-btn color="primary" class="mt-3"  @click="searchFilter">Primary</v-btn>
     
          
         </form>
@@ -74,5 +74,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.v-card {
+  margin-bottom: 0 ;
+}
 </style>
+
