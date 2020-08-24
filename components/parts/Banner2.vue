@@ -19,7 +19,7 @@
       label="Search for entrepreneur..."
       solo
     ></v-autocomplete></v-col>
-    <v-btn color="primary" class="mt-3"  @click="searchFilter">Primary</v-btn>
+    <v-btn dark color="#333333" large depressed class="mt-3 pa-4"  @click="searchFilter">Primary</v-btn>
     
          
         </form>
