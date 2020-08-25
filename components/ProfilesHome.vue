@@ -15,13 +15,13 @@
               <div class="profilecard">
                 <img
                   :src="endPoint+profile.profile_image[0].url"
-                  alt="Shravan "
-                  style="width: 80%;"
+                  alt="{profile.name}"
+                  style="width: 100px; height:100px;"
                 />
-                <h4 class="mt-1 p-1">
+                <h4 class="mt-1 p-0">
                   <nuxt-link :to="`/${profile.id}.${profile.name}`">{{profile.name}}</nuxt-link>
                 </h4>
-                <p class="profiletitle">{{profile.title}}</p>
+                <p class="profiletitle">{{profile.title.substring(0, 50)}}...</p>
                 <hr />
                 <div>
                   <ul class="d-flex flex-row profileicons justify-content-around">
@@ -79,13 +79,11 @@ export default {
     ...mapActions(["fetchProfiles"])
   },
   computed: {
-    ...mapState("profiles", ['profiles', 'filterProfile']),
+    ...mapState("profiles", ["profiles", "filterProfile"]),
     ...mapGetters("profiles", ["allProfiles"]),
-    profileArr () {
-      
-      
-      if (this.$nuxt.$route.name === 'index')return this.profiles
-      if (this.$nuxt.$route.name === 'profileFilter') return this.filterProfile
+    profileArr() {
+      if (this.$nuxt.$route.name === "index") return this.profiles;
+      if (this.$nuxt.$route.name === "profileFilter") return this.filterProfile;
     }
   },
   created() {

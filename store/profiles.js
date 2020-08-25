@@ -15,7 +15,7 @@ const getters = {
 const actions = {
   async fetchProfiles({ commit }) {
     //alert(process.env.apiUrl);
-    const response = await axios.get(process.env.apiUrl+"/profiles");
+    const response = await axios.get(process.env.apiUrl + "/profiles");
 
     console.log(response.data);
 
@@ -25,20 +25,24 @@ const actions = {
   async getProfile({ commit }, payload) {
     var urlp = payload.split(".");
     console.log(urlp);
-    const response = await axios.get(process.env.apiUrl+`/profiles/${urlp[0]}`);
-   
+    const response = await axios.get(
+      process.env.apiUrl + `/profiles/${urlp[0]}`
+    );
+
     commit("setSelectedProfile", response.data);
   },
-  async setSearch ({ state,commit, dispatch }, payload) {
-    
-    
-    if (payload.type.toLowerCase() === 'profiles') {
-      let result = await axios.get(process.env.apiUrl+`/profiles?name_contains=${payload.text.toLowerCase()}`)
+  async setSearch({ state, commit, dispatch }, payload) {
+    console.log(payload);
 
-     
+    if (payload.type.toLowerCase() === "profiles") {
+      let result = await axios.get(
+        process.env.apiUrl +
+          `/profiles?name_contains=${payload.text.toLowerCase()}`
+      );
+
       commit("setProfilesFilter", result.data);
     }
-    commit('setSearch', payload)
+    commit("setSearch", payload);
   }
 };
 
@@ -46,7 +50,7 @@ const mutations = {
   setProfiles: (state, profiles) => (state.profiles = profiles),
   setProfilesFilter: (state, profiles) => (state.filterProfile = profiles),
   setSelectedProfile: (state, profile) => (state.selectedProfile = profile),
-  setSearch: (state,payload) => (state.filtersearch = payload)
+  setSearch: (state, payload) => (state.filtersearch = payload)
 };
 
 export default {
