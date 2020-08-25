@@ -34,12 +34,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted text-center">
-            Copyright &copy; Your Company 2020 | Web Design by
-            <a
-              href="mailto:reach@heyshrav.me"
-            >Shravan</a>
-          </p>
+          <p class="copyright text-muted text-center">Copyright &copy; Biggmind 2020</p>
         </div>
       </div>
     </div>
