@@ -17,14 +17,14 @@ const actions = {
     //alert(process.env.apiUrl);
     const response = await axios.get(process.env.apiUrl + "/profiles");
 
-    console.log(response.data);
+    //console.log(response.data);
 
     commit("setProfiles", response.data);
   },
 
   async getProfile({ commit }, payload) {
     var urlp = payload.split(".");
-    console.log(urlp);
+    //console.log(urlp);
     const response = await axios.get(
       process.env.apiUrl + `/profiles/${urlp[0]}`
     );
@@ -32,7 +32,7 @@ const actions = {
     commit("setSelectedProfile", response.data);
   },
   async setSearch({ state, commit, dispatch }, payload) {
-    console.log(payload);
+    //console.log(payload);
 
     if (payload.type.toLowerCase() === "profiles") {
       let result = await axios.get(
