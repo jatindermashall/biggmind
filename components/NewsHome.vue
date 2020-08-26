@@ -5,7 +5,6 @@
         <div class="boxedcontainer">
           <div class="col-12 bg-white">
             <h4 class="bg-white mt-4 mb-0 ml-4">List of News Section</h4>
-            <br />
           </div>
 
           <div class="row newsbox mt-0 bg-transparent">
@@ -14,48 +13,22 @@
                 class="row mb-2 d-flex flex-row align-items-center justify-content-center bg-transparent"
               >
                 <div class="col-md-8 col-sm-12">
-                  <article class>
+                  <article v-for="(news, index) in newsArr" :key="index">
                     <div class="card bg-transparent">
                       <div class="card-body">
                         <div class="media">
-                          <img
-                            class="mr-3 newsicon img-fluid rounded-circle"
-                            src="https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg"
-                            alt="news icon"
-                          />
+                          <nuxt-link :to="`/${news.profile.id}.${news.profile.name}`">
+                            <img
+                              class="mr-3 newsicon img-fluid rounded-circle"
+                              :src="endPoint+news.profile.profile_image[0].url"
+                              alt="news icon"
+                            />
+                          </nuxt-link>
                           <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            <a href="#">
-                              <h6 class>
-                                Super excited to join you guys at 9:00 a.m. ET
-                                :) Text your question and number to
-                                212-931-5731 to be on the show!
-                              </h6>
-                            </a>
-                            <button type="button" class="btn searchbtn">Read more</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="mt-2">
-                    <div class="card bg-transparent">
-                      <div class="card-body">
-                        <div class="media">
-                          <img
-                            class="mr-3 newsicon img-fluid rounded-circle"
-                            src="https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg"
-                            alt="news icon"
-                          />
-                          <div class="media-body">
-                            <h5 class="mt-0">Media heading</h5>
-                            <a href="#">
-                              <h6 class>
-                                Super excited to join you guys at 9:00 a.m. ET
-                                :) Text your question and number to
-                                212-931-5731 to be on the show!
-                              </h6>
-                            </a>
+                            <h5 class="mt-0">{{news.title}}</h5>
+                            <nuxt-link :to="`news/${news.profile.name}.${news.id}.${news.title}`">
+                              <h6 class>{{news.description.substring(0, 250)}}....</h6>
+                            </nuxt-link>
                             <button type="button" class="btn searchbtn">Read more</button>
                           </div>
                         </div>
@@ -135,7 +108,37 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions, mapState } from "vuex";
+export default {
+  data() {
+    return {
+      endPoint: process.env.imageUrl
+    };
+  },
+  name: "News",
+  methods: {
+    ...mapActions("news", ["fetchNews"])
+  },
+  computed: {
+    ...mapState("news", ["news", "filterNews"]),
+    ...mapGetters("news", ["allNews"]),
+    newsArr() {
+      if (this.$nuxt.$route.name === "index") return this.news;
+      if (this.$nuxt.$route.name === "newsFilter") return this.filterNews;
+    }
+  },
+  created() {
+    this.fetchNews();
+  },
+  filters: {
+    replacespaces: function(value) {
+      if (!value) return "";
+      value = value.replace(" ", "-");
+      console.log(value);
+      return value;
+    }
+  }
+};
 </script>
 
 <style>

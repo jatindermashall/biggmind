@@ -1,7 +1,8 @@
 export default {
   env: {
     apiUrl: process.env.API_URL || "https://api.biggmind.com",
-    imageUrl: process.env.API_IMAGE_URL || "https://api.biggmind.com"
+    imageUrl: process.env.API_IMAGE_URL || "https://api.biggmind.com",
+    baseUrl: process.env.BASE_URL || "http://localhost:3000"
   },
   /*
    ** Nuxt rendering mode
@@ -85,8 +86,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-  ],
+  plugins: [],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -95,9 +95,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxtjs/vuetify'
-  ],
+  buildModules: ["@nuxtjs/vuetify"],
   /*
    ** Nuxt.js modules
    */

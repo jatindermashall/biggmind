@@ -5,7 +5,7 @@
     style="background-color: rgb(34, 34, 34);"
   >
     <div class="container bg-transparent">
-      <a class="navbar-brand" href="#">Biggmind</a>
+      <a class="navbar-brand" :href="host">Biggmind</a>
       <button data-toggle="collapse" class="navbar-toggler bg-transparent" data-target="#navcol-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
       <div class="collapse bg-transparent navbar-collapse justify-content-end" id="navcol-1">
         <ul class="nav navbar-nav">
           <li class="nav-item" role="presentation">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" :href="host">Home</a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" href="profile.html">Profiles</a>
@@ -38,7 +38,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      host: process.env.baseUrl
+    };
+  }
+};
 </script>
 
 <style></style>
