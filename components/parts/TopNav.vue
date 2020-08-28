@@ -16,10 +16,10 @@
             <a class="nav-link active" :href="host">Home</a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" href="profile.html">Profiles</a>
+            <a class="nav-link" :href="host + 'profiles'">Profiles</a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" :href="host + 'news'">News</a>
           </li>
         </ul>
         <a
