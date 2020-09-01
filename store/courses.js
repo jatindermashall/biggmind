@@ -10,12 +10,18 @@ const getters = {
 
 const actions = {
   async fetchCourses({ commit }) {
+   
     const response = await axios.get(process.env.apiUrl + "/courses");
     console.log(response.data);
+    commit('setCourses',response.data);
   }
 };
 
-const mutations = {};
+const mutations = {
+
+setCourses:(state,courses)=>(state.courses=courses)
+
+};
 
 export default {
   state,

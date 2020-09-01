@@ -4,7 +4,7 @@
       <div class="row">
         <div class="boxedcontainer">
           <h4 class="mt-4 ml-4 mb-0 bg-white">Browse Courses</h4>
-          <div class="card-group" v-for="(courses, index) in courseArr" :key="index">
+          <div class="card-group" v-for="course in allCourses" :key="course.id">
             <div class="col-md-4 bg-white">
               <div class="card coursediv card-custom bg-white border-white border-0">
                 <div
@@ -48,10 +48,11 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Courses",
-  methods: { ...mapActions(["fetchCourses"]) },
-  computed: mapGetters(["allCourses"]),
+  methods: { ...mapActions("courses", ["fetchCourses"]) },
+  computed: mapGetters("courses", ["allCourses"]),
   created() {
     this.fetchCourses();
+    
   }
 };
 </script>
