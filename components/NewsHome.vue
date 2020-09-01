@@ -6,8 +6,8 @@
           <div class="col-12 bg-white">
             <h4 class="bg-white mt-4 mb-0 ml-4">List of News Section</h4>
           </div>
-
-          <div class="row newsbox mt-0 bg-transparent">
+          <skeleton-loader :loading="loading"></skeleton-loader>
+          <div class="row newsbox mt-0 bg-transparent" :loading="!loading">
             <div class="col-12 ml-1 mt-0 bg-transparent">
               <div
                 class="row mb-2 d-flex flex-row align-items-center justify-content-center bg-transparent"
@@ -108,11 +108,13 @@
 </template>
 
 <script>
+import SkeletonLoader from "./SkeletonLoader";
 import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      endPoint: process.env.imageUrl
+      endPoint: process.env.imageUrl,
+      loading: true
     };
   },
   name: "News",
@@ -129,6 +131,10 @@ export default {
   },
   created() {
     this.fetchNews();
+  },
+
+  updated() {
+    this.loading = false;
   },
   filters: {
     replacespaces: function(value) {
