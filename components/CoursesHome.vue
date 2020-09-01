@@ -48,10 +48,11 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Courses",
-  methods: { ...mapActions(["fetchCourses"]) },
-  computed: mapGetters(["allCourses"]),
+  methods: { ...mapActions("courses", ["fetchCourses"]) },
+  computed: mapGetters("courses", ["allCourses"]),
   created() {
     this.fetchCourses();
+    
   }
 };
 </script>
