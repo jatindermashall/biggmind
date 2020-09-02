@@ -4,36 +4,31 @@
       <div class="row">
         <div class="boxedcontainer">
           <h4 class="mt-4 ml-4 mb-0 bg-white">Browse Courses</h4>
-          <div class="card-group" v-for="course in allCourses" :key="course.id">
+          <skeleton-loader :loading="loading"></skeleton-loader>
+          <div class="card-group" :loading="!loading" v-for="course in allCourses" :key="course.id">
             <div class="col-md-4 bg-white">
               <div class="card coursediv card-custom bg-white border-white border-0">
-                <div
-                  class="card-custom-img"
-                  style="
-                      background-image: url(https://via.placeholder.com/300x200?text=biggmind.com);
-                    "
-                ></div>
-                <div class="card-custom-avatar">
-                  <img
-                    class="img-fluid"
-                    src="https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg"
-                    alt="Avatar"
-                  />
-                </div>
                 <div class="card-body bg-white" style="overflow-y: auto; margin-bottom: 0px;">
-                  <h4 class="card-title bg-white">{{course.title}}</h4>
-                  <p class="card-text bg-white">
-                    A small detail about the course
-                    <a href="#" target="_blank">with a link element</a>
-                    find the best course in the market
-                  </p>
+                  <v-row>
+                    <v-col cols="6" md="3">
+                      <v-avatar>
+                        <img :src="endPoint + course.profile.profile_image[0].url" alt="John" />
+                      </v-avatar>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <b>{{ course.title }}</b>
+                    </v-col>
+                  </v-row>
+                  <p class="card-text bg-white">{{ course.description.substring(0, 300) }}...</p>
                 </div>
                 <div
                   class="card-footer bg-white"
                   style="background: bg-white; border-color: inherit;"
                 >
-                  <a href="#" class="btn searchbtn">Check out</a>
-                  <a href="#" class="btn searchbtninverse">Other option</a>
+                  <nuxt-link
+                    :to="`course/${course.id}.${course.title}`"
+                    class="btn searchbtn"
+                  >Check out</nuxt-link>
                 </div>
               </div>
             </div>
@@ -45,17 +40,25 @@
 </template>
 
 <script>
+import SkeletonLoader from "./SkeletonLoader";
 import { mapGetters, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      endPoint: process.env.imageUrl,
+      loading: true
+    };
+  },
   name: "Courses",
   methods: { ...mapActions("courses", ["fetchCourses"]) },
   computed: mapGetters("courses", ["allCourses"]),
   created() {
     this.fetchCourses();
-    
+  },
+  updated() {
+    this.loading = false;
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>
