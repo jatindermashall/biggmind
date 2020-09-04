@@ -91,6 +91,7 @@ export default {
   },
   async created() {
     this.loading = true;
+
     let res = await this.fetchProfiles();
 
     if (res === true) {
