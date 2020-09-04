@@ -78,8 +78,7 @@ export default {
   },
   name: "Profiles",
   methods: {
-    ...mapActions("profiles", ["fetchProfiles"]),
-    ...mapActions(["fetchProfiles"])
+    ...mapActions("profiles", ["fetchProfiles"])
   },
   computed: {
     ...mapState("profiles", ["profiles", "filterProfile"]),
@@ -93,7 +92,6 @@ export default {
     this.loading = true;
 
     let res = await this.fetchProfiles();
-
     if (res === true) {
       this.loading = false;
     }

@@ -15,6 +15,7 @@ const actions = {
     const response = await axios.get(process.env.apiUrl + "/courses");
     //console.log(response.data);
     commit("setCourses", response.data);
+
     return true;
   },
 
