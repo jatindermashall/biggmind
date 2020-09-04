@@ -20,6 +20,7 @@ const actions = {
     //console.log(response.data);
 
     commit("setProfiles", response.data);
+    return true;
   },
 
   async getProfile({ commit }, payload) {

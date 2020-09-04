@@ -6,7 +6,8 @@
           <div class="col-md-12 bg-white">
             <h4 class="mt-4 ml-2 mb-2 bg-white">Profiles</h4>
           </div>
-          <div class="bg-white mt-4 card-group">
+          <skeleton-loader v-if="loading"></skeleton-loader>
+          <div v-else class="bg-white mt-4 card-group">
             <div
               v-for="(profile, index) in profileArr"
               :key="index"
@@ -66,11 +67,13 @@
 </template>
 
 <script>
+import SkeletonLoaderProfileHome from "./SkeletonLoaderProfileHome";
 import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      endPoint: process.env.imageUrl
+      endPoint: process.env.imageUrl,
+      loading: false
     };
   },
   name: "Profiles",
@@ -86,8 +89,13 @@ export default {
       if (this.$nuxt.$route.name === "profileFilter") return this.filterProfile;
     }
   },
-  created() {
-    this.fetchProfiles();
+  async created() {
+    this.loading = true;
+    let res = await this.fetchProfiles();
+
+    if (res === true) {
+      this.loading = false;
+    }
   }
 };
 </script>
