@@ -23,14 +23,14 @@
               <div class="card-body align-items-center d-flex">
                 <div class="col-md-12 col-sm-12">
                 <table cellpadding="0" cellspacing="0" class="userDes">
-                 <tr><th><i class="fa fa-user" aria-hidden="true"></i> Born:</th> <td>{{profile.dob}}</td></tr>
+                 <tr><th><i class="fa fa-user" aria-hidden="true"></i> Born:</th> <td>{{profile.dob| moment}}</td></tr>
                  
-                 <tr><th><i class="fa fa-usd" aria-hidden="true"></i> Net worth:</th> <td> 18,040 crores USD (2020)</td></tr>
+                 <tr><th><i class="fa fa-usd" aria-hidden="true"></i> Net worth:</th> <td> {{profile.net_worth}}</td></tr>
                  
-                 <tr><th><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education:</th> <td> Princeton University (1982–1986), River Oaks Elementary School, Miami Palmetto Senior High School</td></tr>
-                 <tr><th><i class="fa fa-briefcase" aria-hidden="true"></i> Businesses:</th> <td> Amazon, Self Made</td></tr>
+                 <tr><th><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education:</th> <td> {{profile.education}}</td></tr>
+                 <tr><th><i class="fa fa-briefcase" aria-hidden="true"></i> Businesses:</th> <td> {{profile.businesses}}</td></tr>
                  
-                 <tr><th><i class="fa fa-globe" aria-hidden="true"></i> Citizenship:</th> <td> United States</td></tr>
+                 <tr><th><i class="fa fa-globe" aria-hidden="true"></i> Citizenship:</th> <td> {{profile.citizenship}}</td></tr>
                  
                   </table>
                   
@@ -67,7 +67,9 @@
                 <li class="tabpillscustom">
                   <a href="#Books" data-toggle="tab" @click="selectedTab = 'books'" :class="{'active': selectedTab === 'books'}">Books</a>
                 </li>
-              
+              <li class="tabpillscustom">
+                  <a href="#Videos" data-toggle="tab" @click="selectedTab = 'videos'" :class="{'active': selectedTab === 'videos'}">Videos</a>
+                </li>
                 <li class="tabpillscustom">
                   <a href="#Stories" data-toggle="tab" @click="selectedTab = 'stories'" :class="{'active': selectedTab === 'stories'}">Stories</a>
                 </li>
@@ -153,7 +155,18 @@
                 </p>
               </div>
             </div>
-
+   <div class="tab-pane" id="Videos" :class="{'active': selectedTab === 'videos'}">
+              <div class="card bg-white boxedcontainer mainsectioncard">
+                <h1 class="bg-transparent">Videos</h1>
+                <hr />
+                <p class="bg-transparent" v-for="(video, index) in profile.videos" :key="index">
+                 
+                 {{video.title}}<br/>
+                 {{video.embed_code}}
+                 </p>
+              
+              </div>
+            </div>
             <div class="tab-pane" id="Stories" :class="{'active': selectedTab === 'stories'}">
               <div class="card bg-white boxedcontainer mainsectioncard">
                 <h1 class="bg-transparent">Stories by Entreprenuers</h1>
@@ -193,6 +206,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
@@ -209,7 +223,12 @@ export default {
   },
   methods: {
     ...mapActions("profiles", ["getProfile"])
+  },
+  filters: {
+  moment: function (date) {
+    return moment(date).format('MMMM Do YYYY');
   }
+}
 };
 </script>
 
