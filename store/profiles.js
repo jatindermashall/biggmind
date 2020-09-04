@@ -28,7 +28,7 @@ const actions = {
     const response = await axios.get(
       process.env.apiUrl + `/profiles/${urlp[0]}`
     );
-
+    console.log(response.data);
     commit("setSelectedProfile", response.data);
   },
   async setSearch({ state, commit, dispatch }, payload) {

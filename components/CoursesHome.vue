@@ -4,8 +4,8 @@
       <div class="row">
         <div class="boxedcontainer">
           <h4 class="mt-4 ml-4 mb-0 bg-white">Browse Courses</h4>
-          <skeleton-loader :loading="loading"></skeleton-loader>
-          <div class="card-group" :loading="!loading" v-for="course in allCourses" :key="course.id">
+          <skeleton-loader  v-if="loading"></skeleton-loader>
+          <div class="card-group" v-else v-for="course in allCourses" :key="course.id">
             <div class="col-md-4 bg-white">
               <div class="card coursediv card-custom bg-white border-white border-0">
                 <div class="card-body bg-white" style="overflow-y: auto; margin-bottom: 0px;">
@@ -46,18 +46,22 @@ export default {
   data() {
     return {
       endPoint: process.env.imageUrl,
-      loading: true
+      loading: false
     };
   },
   name: "Courses",
   methods: { ...mapActions("courses", ["fetchCourses"]) },
   computed: mapGetters("courses", ["allCourses"]),
-  created() {
-    this.fetchCourses();
+  async created() {
+    this.loading = true;
+    let res = await this.fetchCourses();
+    if (res === true) {
+      this.loading = false;
+    }
   },
-  updated() {
-    this.loading = false;
-  }
+  // updated() {
+  //   this.loading = false;
+  // }
 };
 </script>
 

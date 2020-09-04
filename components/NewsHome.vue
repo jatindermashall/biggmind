@@ -6,8 +6,8 @@
           <div class="col-12 bg-white">
             <h4 class="bg-white mt-4 mb-0 ml-4">List of News Section</h4>
           </div>
-          <skeleton-loader :loading="loading"></skeleton-loader>
-          <div class="row newsbox mt-0 bg-transparent" :loading="!loading">
+          <skeleton-loader v-if="loading"></skeleton-loader>
+          <div v-else class="row newsbox mt-0 bg-transparent">
             <div class="col-12 ml-1 mt-0 bg-transparent">
               <div
                 class="row mb-2 d-flex flex-row align-items-center justify-content-center bg-transparent"
@@ -114,7 +114,7 @@ export default {
   data() {
     return {
       endPoint: process.env.imageUrl,
-      loading: true
+      loading: false
     };
   },
   name: "News",
@@ -129,13 +129,17 @@ export default {
       if (this.$nuxt.$route.name === "newsFilter") return this.filterNews;
     }
   },
-  created() {
-    this.fetchNews();
+  async created() {
+    this.loading = true;
+    let res = await this.fetchNews();
+    if (res === true){
+      this.loading = false;
+    }
   },
 
-  updated() {
-    this.loading = false;
-  },
+  // updated() {
+  //   this.loading = false;
+  // },
   filters: {
     replacespaces: function(value) {
       if (!value) return "";

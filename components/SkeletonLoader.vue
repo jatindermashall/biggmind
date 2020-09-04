@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row" v-show="loading">
+    <div class="row">
       <div class="col-xl-4 pt-5">
         <div class="placeholder wave">
           <div class="square"></div>
@@ -28,13 +28,13 @@
 <script>
 export default {
   name: "SkeletonLoader",
-  props: {
-    loading: {
-      type: Boolean,
-      default: false,
-      required: true
-    }
-  }
+  // props: {
+  //   loading: {
+  //     type: Boolean,
+  //     default: false,
+  //     required: true
+  //   }
+  // }
 };
 </script>
 <style scoped lang="scss">

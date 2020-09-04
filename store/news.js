@@ -18,6 +18,7 @@ const actions = {
     //console.log(response.data);
 
     commit("setNews", response.data);
+    return true
   },
 
   async getNews({ commit }, payload) {
