@@ -12,9 +12,10 @@
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/vuetify": "^1.11.2",
     "nuxt": "^2.13.3",
-    "vuetify": "^2.0.0",
-    "@nuxtjs/vuetify": "^1.11.2"
+    "vuetify": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.2"

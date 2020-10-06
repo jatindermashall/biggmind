@@ -27,7 +27,7 @@
 </template>
 <script>
 export default {
-  name: "SkeletonLoader"
+  name: "SkeletonLoaderProfileHome"
   // props: {
   //   loading: {
   //     type: Boolean,
@@ -75,8 +75,8 @@ export default {
   }
   .circle {
     float: left;
-    width: 40px;
-    height: 40px;
+    width: 240px;
+    height: 240px;
     margin: 0 15px 10px 0;
     border-radius: 40px;
   }
